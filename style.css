@@ -1,0 +1,72 @@
+/*
+charte site immobilier:
+#298BEA bleu
+#000000 noir
+#FFFFFF blanc
+font-family: Arial, Helvetica, sans-serif; restons simple
+*/
+
+body{
+    color: #298BEA;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* header */
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    border-bottom: 1px solid rgba(0,0,0, .5);
+    margin-top: -50px;
+}
+nav ul{
+    position: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+nav ul form{
+    display: flex;
+    align-items: center;
+}
+nav a{
+    text-decoration: none;
+    color: #298BEA;
+}
+
+/* main */
+main{
+    padding-top: 5%;
+    margin: 5% 0%;
+}
+#grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    gap: 100px;
+}
+
+.card-body{
+    text-align: center;
+}
+.card-title{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* footer */
+footer{
+    text-align: center;
+    border-top: 1px solid #000000;
+}
+footer form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer form input{
+    margin-bottom: 5px;
+}
