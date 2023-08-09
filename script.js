@@ -108,7 +108,12 @@ $(document).ready(function(){
             mail: $("#mail").val(),
             message: $("#message").val()
         };
-        console.log(formData);
+
+        // vide les inputs
+        $('#nom').val('');
+        $('#prenom').val('');
+        $('#mail').val('');
+        $('#message').val('');
 
         
         var type = "POST";
