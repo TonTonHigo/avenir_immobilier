@@ -7,9 +7,9 @@ font-family: Arial, Helvetica, sans-serif; restons simple
 */
 
 body{
-    color: #298BEA;
     font-family: Arial, Helvetica, sans-serif;
     scroll-behavior: smooth;
+    margin: 0;
 }
 
 /* header */
@@ -18,7 +18,8 @@ header{
     width: 100%;
     z-index: 1;
     border-bottom: 1px solid rgba(0,0,0, .5);
-    margin-top: -50px;
+    transition: .5s ease;
+    padding-top: 15px;
 }
 nav ul{
     position: inherit;
@@ -35,11 +36,26 @@ nav a{
     text-decoration: none;
     color: #298BEA;
 }
+.lienscol{
+    transition: .5s ease;
+}
+
+#butsearch{
+    background-color: #298BEA;
+    color: #FFFFFF;
+    transition: .5s ease;
+    border: none;
+}
+#inputcol{
+    background-color: #298BEA;
+    color: #FFFFFF;
+    border: none;
+}
 
 /* main */
 main{
-    padding-top: 5%;
-    margin: 5% 0%;
+    padding-top: 10%;
+    padding-bottom: 5%;
 }
 #grid{
     display: grid;

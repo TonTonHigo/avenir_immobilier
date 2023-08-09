@@ -37,6 +37,8 @@
             ?>
         </div>
 
+        <!-- ajout flache ici pour remonter tout en haut -->
+
     </main>
     
     <?php include "footer.php"; ?>
