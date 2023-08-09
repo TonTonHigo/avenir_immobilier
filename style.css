@@ -16,13 +16,12 @@ body{
 header{
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     border-bottom: 1px solid rgba(0,0,0, .5);
     transition: .5s ease;
     padding-top: 15px;
 }
 nav ul{
-    position: inherit;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -49,13 +48,34 @@ nav a{
 #inputcol{
     background-color: #298BEA;
     color: #FFFFFF;
-    border: none;
+    border: 1px solid #FFFFFF;
 }
+#inputcol::placeholder{
+    color: #FFFFFF;
+}
+#burger{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    z-index: 2;
+}
+
+
+
 
 /* main */
 main{
-    padding-top: 10%;
-    padding-bottom: 5%;
+    padding: 10% 0;
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFFF;
+}
+#menumodal nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 #grid{
     display: grid;
@@ -65,18 +85,52 @@ main{
 }
 
 .card-body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
+}
+.card-text{
+    display: none;
 }
 .card-title{
     font-weight: bold;
     text-transform: uppercase;
 }
 
+#filtre{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 5%;
+}
+#cent{
+    text-align: center;
+}
+#icon{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    transition: .5s ease;
+}
+.btn{
+    background-color: #298BEA;
+    color: #FFFFFF;
+}
+
+
+
+
 
 /* footer */
 footer{
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: #298BEA;
     text-align: center;
     border-top: 1px solid #000000;
+    color: #FFFFFF;
 }
 footer form{
     display: flex;
@@ -85,4 +139,64 @@ footer form{
 }
 footer form input{
     margin-bottom: 5px;
+    border: none;
+}
+#contactform button{
+    margin: 5px 0;
+}
+
+
+
+/* responsive */
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+    body {
+        font-size: 14px; /* Adjust font size for tablets */
+    }
+    /* Adjust header styles for tablets */
+    header {
+        padding-top: 10px;
+    }
+    
+    nav ul{
+        flex-wrap: wrap;
+    }
+    /* Adjust main styles for tablets */
+    main {
+        padding: 20% 0;
+    }
+    #filtre{
+        flex-wrap: wrap;
+    }
+    /* Adjust grid styles for tablets */
+    #grid {
+        grid-template-columns: auto auto;
+        gap: 50px;
+    }
+}
+
+/* Phones (portrait and landscape) */
+@media only screen and (max-width: 599px) {
+    body {
+        font-size: 12px; /* Adjust font size for phones */
+    }
+
+    /* Adjust header styles for phones */
+    header {
+        display: none;
+    }
+    #burger{
+        display: block;
+    }
+    /* Adjust main styles for phones */
+    main {
+        padding: 25% 0;
+    }
+    #filtre{
+        flex-wrap: wrap;
+    }
+    /* Adjust grid styles for phones */
+    #grid {
+        grid-template-columns: auto;
+        gap: 30px;
+    }
 }

@@ -56,17 +56,17 @@ class ma_connexion{
 
 
     // INSERTION 
-    public function insert($nom, $prenom, $email , $age){ 
+    public function insert($nom, $prenom, $email , $message){ 
 
             try {
 
-                $insert = "INSERT INTO  `contacts`(nom, prenom, email , age)  VALUES (?, ?, ?, ?)";
+                $insert = "INSERT INTO  `contacts`(nom, prenom, mail , message)  VALUES (?, ?, ?, ?)";
     
                 $requete = $this -> connexionPDO -> prepare($insert);
                 $requete->bindValue(1, $nom, PDO::PARAM_STR);
                 $requete->bindValue(2, $prenom, PDO::PARAM_STR);
                 $requete->bindValue(3, $email, PDO::PARAM_STR);
-                $requete->bindValue(4, $age, PDO::PARAM_INT);
+                $requete->bindValue(4, $message, PDO::PARAM_STR);
     
             
                 $requete->execute();

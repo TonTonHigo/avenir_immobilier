@@ -7,15 +7,71 @@
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- mon css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <?php include "header.php"; ?>
+    <!-- burger -->
+    <i class="fa-solid fa-bars fa-2xl" style="color: #000000;" id="burger" data-bs-toggle="modal" data-bs-target="#modalburger"></i>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modalburger" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+            <div id="menumodal">  
+                <nav>
+                    <ul>
+                        <li><h2><a href="index.php" class="lienscol liensmodal">Nos offres immobilières</a></h2></li>
+                        <li><h2><a href="#contactform" class="lienscol liensmodal" id="contact">Nous contacter</a></h2></li>
+                        <li>
+                            <form action="controller.php" method="post">
+                            <input type="hidden" value="search" name="controller">
+                            <input type="research" placeholder="Ma recherche..." name="research" id="inputcol">
+                            <button type="submit" id="butsearch" class="liensmodal">Rechercher</button>
+                            </form>
+                        </li>
+                    </ul> 
+                </nav>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
     <main>
+        <!-- barre filtres -->
+        <div>
+            <h1 id="cent">Filtres</h1>
+            <form action="" id="filtre">
+                <input list="type_immo" name="lis" id="type" placeholder="Type d'habitation">
+                <datalist id="type_immo">
+                    <option value="appartement">
+                    <option value="cabane">
+                    <option value="villa">
+                    <option value="maison">
+                </datalist>
 
+                <input list="surface_immo" name="surface" id="surface" placeholder="Surface">
+                <datalist id="surface_immo">
+                    <option value="petite à grande">
+                    <option value="grande à petite">
+                </datalist>
+
+                <input list="prix_immo" name="prix" id="prix" placeholder="Prix">
+                <datalist id="prix_immo">
+                    <option value="croissant">
+                    <option value="decroissant">
+                </datalist>
+
+                <button>Filtrer</button>
+            </form>
+        </div>
+
+        <!-- cartes -->
         <div id="grid">
             <?php
             $carte = $connexion -> select("*","biens_immo");
@@ -29,7 +85,7 @@
                         <p class="card-text">'. $affiche['prix'] .' €</p>
                         <p class="card-text">'. $affiche['contenu'] .'</p>
                         <p class="card-text">'. $affiche['vendeur'] .'</p>
-                        <a href="#" class="btn btn-primary">Contacter le vendeur</a>
+                        <a href="#" class="btn">Contacter le vendeur</a>
                     </div>
                 </div>
                 ';
@@ -38,7 +94,9 @@
         </div>
 
         <!-- ajout flache ici pour remonter tout en haut -->
-
+          <div>
+            <a href="#" id="icon"><i class="fa-solid fa-circle-arrow-up fa-4x" style="color: #000000;"></i></i></a>
+          </div>  
     </main>
     
     <?php include "footer.php"; ?>

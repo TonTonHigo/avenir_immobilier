@@ -20,14 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `app_immo`
 --
-
+CREATE DATABASE app_immo;
+USE app_immo;
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `biens_immo`
 --
 
-DROP TABLE IF EXISTS `biens_immo`;
 CREATE TABLE IF NOT EXISTS `biens_immo` (
   `id_biens_immo` int NOT NULL AUTO_INCREMENT,
   `image` varchar(500) NOT NULL,
@@ -55,7 +55,6 @@ INSERT INTO `biens_immo` (`id_biens_immo`, `image`, `type`, `surface`, `prix`, `
 -- Structure de la table `contacts`
 --
 
-DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id_contacts` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
