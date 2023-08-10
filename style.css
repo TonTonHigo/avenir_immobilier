@@ -178,6 +178,10 @@ footer form input{
         grid-template-columns: auto auto;
         gap: 50px;
     }
+    .grid{
+        grid-template-columns: auto auto;
+        gap: 50px;
+    }
 }
 
 /* Phones (portrait and landscape) */
@@ -202,6 +206,10 @@ footer form input{
     }
     /* Adjust grid styles for phones */
     #grid {
+        grid-template-columns: auto;
+        gap: 30px;
+    }
+    .grid{
         grid-template-columns: auto;
         gap: 30px;
     }

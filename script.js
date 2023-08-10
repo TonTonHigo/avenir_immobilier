@@ -163,10 +163,26 @@ $(document).ready(function(){
     });
 
 
+    $('#modalsearch').submit(function(event) {
+        event.preventDefault();
+        
+        var inputcol = $('#modalinput').val().toLowerCase();
+        
+        $('.original').hide();
+        $('.cache').hide();
+        
+        var selector = '.' + inputcol;
 
-
-
-
+        // Iterate through each card and check if it matches the search input
+        $('.card').each(function() {
+            var cardTitle = $(this).find('.card-title').text().toLowerCase();
+            var cardText = $(this).find('.card-text').text().toLowerCase();
+            
+            if (cardTitle.includes(inputcol) || cardText.includes(inputcol)) {
+                $(selector).show();
+            }
+        });
+    });
 
 
 
