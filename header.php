@@ -2,7 +2,7 @@
     <nav>
        <ul>
             <li><h2><a href="index.php" class="lienscol">Nos offres immobilières</a></h2></li>
-            <li><h2><a href="#contactform" class="lienscol" id="contact">Nous contacter</a></h2></li>
+            <li><h2><a class="lienscol" id="contact">Nous contacter</a></h2></li>
             <li>
                 <form id="searchForm">
                     <input type="hidden" value="search" name="controller">

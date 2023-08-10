@@ -1,6 +1,9 @@
 $(document).ready(function(){
-
-    // lien nav
+    // click sur nous contacter dans la nav emmene en bas de la page
+    $('#contact').click(function() {
+        $("html, body").animate({ scrollTop: $(document).height() });
+      });
+    // lien nav hover change de couleur
     $('.lienscol').hover(
         function() {
             $(this).css("color", "#000000");
@@ -10,7 +13,7 @@ $(document).ready(function(){
         }
     );
 
-    // boutton nav
+    // boutton nav hover change de couleur
     $('#butsearch').hover(
         function() {
             $(this).css("color", "#000000");
@@ -21,7 +24,7 @@ $(document).ready(function(){
     );
     
     $('#icon').hide();
-    // quand on scroll vers le bas nav change
+    // quand on scroll vers le bas nav change de couleur de background et ces élément comme les liens aussi
     $(document).scroll(function(){
         if ($(this).scrollTop() > 0) {
             $('header').css("background-color", "#298BEA");
@@ -78,7 +81,7 @@ $(document).ready(function(){
         
     });
 
-    // cartes
+    // quand on hover les cartes leur contenu s'affiche sinon ils sont hide
     $('.btn').hover(function(){
         $(this).css("background-color","#000000")
         $(this).css("color","#FFFFFF")
@@ -92,21 +95,21 @@ $(document).ready(function(){
     });
 
 
-    // burger modal
+    // cliquer sur le burger en mode tel ouvre un modal
     $('.liensmodal').click(function(){
         $('.modal').modal('toggle');
     });
     
 
-    // AJAX LE DEMON
-    $("#envoye_contact").click(function(){
+    // AJAX LE DEMON pour le form contact en bas de page
+    $("#envoye_contact").click(function () {
         // récupère les valeurs des inputs
         var formData = {
             controller: $("#controller").val(),
             nom: $("#nom").val(),
             prenom: $("#prenom").val(),
             mail: $("#mail").val(),
-            message: $("#message").val()
+            message: $("#message").val(),
         };
 
         // vide les inputs
@@ -115,7 +118,6 @@ $(document).ready(function(){
         $('#mail').val('');
         $('#message').val('');
 
-        
         var type = "POST";
         var ajaxurl = "controller.php";
 
@@ -125,22 +127,22 @@ $(document).ready(function(){
             url: ajaxurl,
             dataType: 'json',
             data: formData,
-            success: function(data){
-                alert("Votre message a bien été envoyé!");
+            success: function (data) {
+                alert("Votre message a bien été envoyé!\nNous vous répondrons au plus vite.");
             },
-            error: function(xhr,status,error){
+            error: function (xhr, status, error) {
                 console.log("Erreur AJAX : " + error);
                 console.log("Erreur AJAX : " + status);
                 console.log("Erreur AJAX : " + xhr);
-            }
+            },
         });
-
     });
 
-
+    // cache toute les cartes sauf celles affichées de base
     $('.cache').hide();
 
-    // Filtrage
+    // quand on submit une recherche dans la barre de recherche affiche ce que l'on souhaite voir
+
     $('#searchForm').submit(function(event) {
         event.preventDefault();
         
@@ -162,6 +164,7 @@ $(document).ready(function(){
         });
     });
 
+    // quand on submit une recherche dans le modal de la version tel affiche ce que l'on souhaite voir
 
     $('#modalsearch').submit(function(event) {
         event.preventDefault();
@@ -187,7 +190,7 @@ $(document).ready(function(){
 
 
 
-
+    // quand on submit un filtre show les cartes que l'on veut voir et cache celle qui ne souihaite plus voir
     $('#filtre').submit(function(event) {
         event.preventDefault();
     

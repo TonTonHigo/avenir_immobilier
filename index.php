@@ -17,10 +17,10 @@
 <body>
 
     <?php include "header.php"; ?>
-    <!-- burger -->
+    <!-- burger qui affiche que pour tel-->
     <i class="fa-solid fa-bars fa-2xl" style="color: #000000;" id="burger" data-bs-toggle="modal" data-bs-target="#modalburger"></i>
 
-    <!-- Modal -->
+    <!-- Modal pour le burger -->
     <div class="modal fade" id="modalburger" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -77,7 +77,7 @@
             </form>
         </div>
 
-        <!-- cartes -->
+        <!-- cartes afficher de base-->
         <div id="grid" class="original">
             <?php
             $carte = $connexion->select("*", "biens_immo");
@@ -99,7 +99,7 @@
             ?>
         </div>
 
-
+            <!-- mes cartes caché pour les différent filtres -->
         <div class="grid">
             <!-- cartes type -->
             <div class="cache appartement">
@@ -681,7 +681,7 @@
 
 
 
-        <!-- ajout flache ici pour remonter tout en haut -->
+        <!-- ajout fleche ici pour remonter tout en haut -->
         <div>
             <a href="#" id="icon"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color: #000000;"></i></i></a>
         </div>

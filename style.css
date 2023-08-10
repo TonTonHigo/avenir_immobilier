@@ -34,6 +34,7 @@ nav ul form{
 nav a{
     text-decoration: none;
     color: #298BEA;
+    font-weight: bold
 }
 .lienscol{
     transition: .5s ease;
@@ -43,7 +44,7 @@ nav a{
     background-color: #298BEA;
     color: #FFFFFF;
     transition: .5s ease;
-    border: none;
+    border: 1px solid #FFFFFF;
 }
 #inputcol{
     background-color: #298BEA;
@@ -110,8 +111,31 @@ main{
     gap: 50px;
     margin-bottom: 5%;
 }
+#filtre input{
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+#filtre input::placeholder{
+    color: #FFFFFF;
+}
+#filtre button{
+    background-color: #298BEA;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+    transition: .5s ease;
+}
+#filtre button:hover{
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
 #cent{
     text-align: center;
+    color: #298BEA;
+    font-weight: bold;
 }
 #icon{
     position: fixed;
@@ -145,12 +169,31 @@ footer form{
 }
 footer form input{
     margin-bottom: 5px;
-    border: none;
 }
 #contactform button{
     margin: 5px 0;
+    border: none;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 5px;
+    transition: .5s ease;
 }
-
+#contactform button:hover{
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.contactinput{
+    border: none;
+    border-radius: 5px;
+    transition: .5s ease;
+}
+.contactinput:focus{
+    background-color: #000000;
+    color: #FFFFFF;
+}
+.contactinput:focus::placeholder{
+    color: #FFFFFF;
+}
 
 
 /* responsive */

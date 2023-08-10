@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 10 août 2023 à 11:10
+-- Généré le : jeu. 10 août 2023 à 20:28
 -- Version du serveur : 8.0.31
--- Version de PHP : 8.1.13
+-- Version de PHP : 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,14 +20,14 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `app_immo`
 --
-
+CREATE DATABASE app_immo;
+USE app_immo;
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `biens_immo`
 --
 
-DROP TABLE IF EXISTS `biens_immo`;
 CREATE TABLE IF NOT EXISTS `biens_immo` (
   `id_biens_immo` int NOT NULL AUTO_INCREMENT,
   `image` varchar(500) NOT NULL,
@@ -60,7 +60,6 @@ INSERT INTO `biens_immo` (`id_biens_immo`, `image`, `type`, `surface`, `prix`, `
 -- Structure de la table `contacts`
 --
 
-DROP TABLE IF EXISTS `contacts`;
 CREATE TABLE IF NOT EXISTS `contacts` (
   `id_contacts` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
@@ -68,7 +67,28 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `mail` varchar(100) NOT NULL,
   `message` text NOT NULL,
   PRIMARY KEY (`id_contacts`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `contacts`
+--
+
+INSERT INTO `contacts` (`id_contacts`, `nom`, `prenom`, `mail`, `message`) VALUES
+(1, '', '', '', ''),
+(2, '', '', '', ''),
+(3, '', '', '', ''),
+(4, 'zezsdssds', 'zezesd', 'zeezs@gmail.com', 'zezesd'),
+(5, 'test', 'text', 'envoye@gmail.com', 'wow'),
+(6, 'test', 'alert', 'jquery@gmail.com', 'test'),
+(7, 'fish', 'chips', 'fc@gmail.com', 'test'),
+(8, 'ajax', 'lefeu', 'wow@gmail.com', 'mdr'),
+(9, 'allo', 'ajax', 'test@gmail.com', 'wow'),
+(10, 'dernier', 'avantdormi', 'ajax@gmail.com', 'bruh'),
+(11, 'zieux', 'pique', 'oo@gmail.com', 'wow'),
+(12, 'wow', 'wowo', 'wo@gmail.com', 'wo'),
+(13, 'waza', 'waza', 'wa@gmail.com', 'waza'),
+(14, 'lelolelo', 'lelolelo', 'lelo@gmail.com', 'lelolelo'),
+(15, 'zzzzzzzzz', 'zzzzzzzzz', 'zzzzz@gmail.com', 'zzzzzzzzzzzzzzzzzzz');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
