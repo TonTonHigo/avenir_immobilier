@@ -8,10 +8,6 @@ if(isset($_POST['controller'])){
             $contact = $connexion -> insert($_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['message']);
             break;
     
-        case "search":
-            // code
-            break;
-    
         default :
             // code
         break;

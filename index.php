@@ -47,7 +47,7 @@
         <div>
             <h1 id="cent">Filtres</h1>
             <form action="" id="filtre">
-                <input list="type_immo" name="lis" id="type" placeholder="Type d'habitation">
+                <input list="type_immo" name="type" id="type" placeholder="Type d'habitation" >
                 <datalist id="type_immo">
                     <option value="appartement">
                     <option value="cabane">
@@ -67,12 +67,12 @@
                     <option value="decroissant">
                 </datalist>
 
-                <button>Filtrer</button>
+                <button type="submit" id="ajoutfiltre">Filtrer</button>
             </form>
         </div>
 
         <!-- cartes -->
-        <div id="grid">
+        <div id="grid" class="original">
             <?php
             $carte = $connexion -> select("*","biens_immo");
             foreach($carte as $affiche){
@@ -93,9 +93,588 @@
             ?>
         </div>
 
+
+        <!-- cartes type -->
+        <div  class="cache grid appartement">
+            <?php
+            $carte = $connexion -> select_type("appartement");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid maison">
+            <?php
+            $carte = $connexion -> select_type("maison");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid villa">
+            <?php
+            $carte = $connexion -> select_type("villa");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid cabane">
+            <?php
+            $carte = $connexion -> select_type("cabane");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+
+
+        <!-- cartes type surface -->
+        <div  class="cache grid villa-surfacecrois">
+            <?php
+            $carte = $connexion -> select_type_surfacecrois("villa");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid maison-surfacecrois">
+            <?php
+            $carte = $connexion -> select_type_surfacecrois("maison");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid cabane-surfacecrois">
+            <?php
+            $carte = $connexion -> select_type_surfacecrois("cabane");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid appartement-surfacecrois">
+            <?php
+            $carte = $connexion -> select_type_surfacecrois("appartement");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid villa-surfacedes">
+            <?php
+            $carte = $connexion -> select_type_surfacedes("villa");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid maison-surfacedes">
+            <?php
+            $carte = $connexion -> select_type_surfacedes("maison");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid cabane-surfacedes">
+            <?php
+            $carte = $connexion -> select_type_surfacedes("cabane");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid appartement-surfacedes">
+            <?php
+            $carte = $connexion -> select_type_surfacedes("appartement");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+
+
+        <!-- cartes type prix -->
+        <div  class="cache grid villa-prixcrois">
+            <?php
+            $carte = $connexion -> select_type_prixcrois("villa");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid maison-prixcrois">
+            <?php
+            $carte = $connexion -> select_type_prixcrois("maison");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid cabane-prixcrois">
+            <?php
+            $carte = $connexion -> select_type_prixcrois("cabane");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid appartement-prixcrois">
+            <?php
+            $carte = $connexion -> select_type_prixcrois("appartement");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid appartement-prixdes">
+            <?php
+            $carte = $connexion -> select_type_prixdes("appartement");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid maison-prixdes">
+            <?php
+            $carte = $connexion -> select_type_prixdes("maison");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid villa-prixdes">
+            <?php
+            $carte = $connexion -> select_type_prixdes("villa");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid cabane-prixdes">
+            <?php
+            $carte = $connexion -> select_type_prixdes("cabane");
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+
+
+        <!-- juste surface -->
+        <div  class="cache grid surfacecrois">
+            <?php
+            $carte = $connexion -> select_surfacecrois();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid surfacedes">
+            <?php
+            $carte = $connexion -> select_surfacedes();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+
+        <!-- surface prix -->
+        <div  class="cache grid surfacecrois-prixcrois">
+            <?php
+            $carte = $connexion -> select_surfacecrois_prixcrois();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid surfacecrois-prixdes">
+            <?php
+            $carte = $connexion -> select_surfacecrois_prixdes();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid surfacedes-prixdes">
+            <?php
+            $carte = $connexion -> select_surfacedes_prixdes();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid surfacedes-prixcrois">
+            <?php
+            $carte = $connexion -> select_surfacedes_prixcrois();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+
+
+
+        <!-- juste prix -->
+        <div  class="cache grid prixcrois">
+            <?php
+            $carte = $connexion -> select_prixcrois();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        <div  class="cache grid prixdes">
+            <?php
+            $carte = $connexion -> select_prixdes();
+            foreach($carte as $affiche){
+                echo'
+                <div class="card" style="width: 18rem;">
+                    <img src="'. $affiche['image'] .'" class="card-img-top" alt="'. $affiche['type'] .'">
+                    <div class="card-body">
+                        <h5 class="card-title">'. $affiche['type'] .'</h5>
+                        <p class="card-text">'. $affiche['surface'] .' m²</p>
+                        <p class="card-text">'. $affiche['prix'] .' €</p>
+                        <p class="card-text">'. $affiche['contenu'] .'</p>
+                        <p class="card-text">'. $affiche['vendeur'] .'</p>
+                        <a href="#" class="btn">Contacter le vendeur</a>
+                    </div>
+                </div>
+                ';
+            }
+            ?>
+        </div>
+        
+
         <!-- ajout flache ici pour remonter tout en haut -->
           <div>
-            <a href="#" id="icon"><i class="fa-solid fa-circle-arrow-up fa-4x" style="color: #000000;"></i></i></a>
+            <a href="#" id="icon"><i class="fa-solid fa-circle-arrow-up fa-3x" style="color: #000000;"></i></i></a>
           </div>  
     </main>
     

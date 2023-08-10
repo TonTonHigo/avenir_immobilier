@@ -136,4 +136,91 @@ $(document).ready(function(){
         });
 
     });
+
+
+    $('.cache').hide();
+
+    // Filtrage
+    $('#searchForm').submit(function(event) {
+        event.preventDefault();
+        
+        var inputcol = $('#inputcol').val().toLowerCase();
+        
+        $('.original').hide();
+        $('.cache').hide();
+        
+        var selector = '.' + inputcol;
+
+        // Iterate through each card and check if it matches the search input
+        $('.card').each(function() {
+            var cardTitle = $(this).find('.card-title').text().toLowerCase();
+            var cardText = $(this).find('.card-text').text().toLowerCase();
+            
+            if (cardTitle.includes(inputcol) || cardText.includes(inputcol)) {
+                $(selector).show();
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+    $('#filtre').submit(function(event) {
+        event.preventDefault();
+    
+        var type = $('#type').val();
+        var surface = $('#surface').val();
+        var prix = $('#prix').val();
+    
+        $('.original').hide();
+        $('.cache').hide();
+    
+        var selector = '.' + type;
+    
+        if (type === "villa") {
+            if (surface === "petite à grande") {
+                selector += '-surfacecrois';
+            } else if (surface === "grande à petite") {
+                selector += '-surfacedes';
+            } else if (prix === "croissant") {
+                selector += '-prixcrois';
+            } else if (prix === "decroissant") {
+                selector += '-prixdes';
+            } else {
+                selector += ''; // No additional class needed
+            }
+        } else if (type === "maison") {
+            // Similar logic for "maison"
+        } else if (type === "cabane") {
+            // Similar logic for "cabane"
+        } else if (type === "appartement") {
+            // Similar logic for "appartement"
+        } else {
+            $('.original').show();
+            $('.cache').hide();
+            return;
+        }
+    
+        if (surface === "petite à grande") {
+            selector += '-surfacecrois';
+        } else if (surface === "grande à petite") {
+            selector += '-surfacedes';
+        }
+    
+        if (prix === "croissant") {
+            selector += '-prixcrois';
+        } else if (prix === "decroissant") {
+            selector += '-prixdes';
+        }
+    
+        $(selector).show();
+    });
+    
 });

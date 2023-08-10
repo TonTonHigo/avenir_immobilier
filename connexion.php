@@ -52,6 +52,241 @@ class ma_connexion{
 
         }
     }
+    // SECLECT where
+    public function select_type($type){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` WHERE type = '$type'";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_type_surfacecrois($type){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` WHERE type = '$type' ORDER BY surface ASC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_type_surfacedes($type){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` WHERE type = '$type' ORDER BY surface DESC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_type_prixcrois($type){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` WHERE type = '$type' ORDER BY prix ASC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_type_prixdes($type){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` WHERE type = '$type' ORDER BY prix DESC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    
+    // SECLECT where
+    public function select_surfacecrois(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY surface ASC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_surfacedes(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY surface DESC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_surfacecrois_prixcrois(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY surface ASC AND prix ASC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_surfacecrois_prixdes(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY surface DESC AND prix DESC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_surfacedes_prixcrois(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY surface ASC AND prix ASC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_surfacedes_prixdes(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY surface DESC AND prix DESC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_prixcrois(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY prix ASC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
+    // SECLECT where
+    public function select_prixdes(){
+        try {
+
+            $select = "SELECT * FROM `biens_immo` ORDER BY prix DESC";
+
+            $requete = $this -> connexionPDO -> prepare($select);
+            $requete -> execute();
+            $afficher = $requete -> fetchAll(PDO::FETCH_ASSOC);
+
+            return $afficher;
+
+        } catch (PDOException $e) {
+
+            echo "Erreur : " . $e->getMessage();
+
+        }
+    }
 
 
 
