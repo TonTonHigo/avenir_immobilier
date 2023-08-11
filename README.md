@@ -6,6 +6,7 @@ Les fontionnalité abordées sont:
 - Le filtrage des biens afficher selon le besoin du client
 - La recherche dans une barre de recherche de ce que le client veut
 - Un formulaire de contact pour contacter l'agence en, cas de souci
+- Le responsive du site
 
 Un effort à été fait sur l'interface ainsi que le responsive du site malgré le temps restraint concédé à l'intégration du projet, reste améliorable.
 Le code en lui-même peut encore être optimiser au niveau du filtrage et de la recherche.
