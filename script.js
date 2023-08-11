@@ -101,7 +101,7 @@ $(document).ready(function(){
     });
     
 
-    // AJAX LE DEMON pour le form contact en bas de page
+    // AJAX pour le form contact en bas de page
     $("#envoye_contact").click(function () {
         // récupère les valeurs des inputs
         var formData = {
