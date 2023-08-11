@@ -17,7 +17,7 @@ Pour la mise en marche et test du projet:
 - Lancer le localhost/avenir_immobilier
 - Il vous reste à tester les fonctionalité du site
 
-Note: Pour le momoent la barre de recherche n'accepte que les recherches suivante(appartement, villa, maison, cabane)
+Note: Pour le moment la barre de recherche n'accepte que les recherches suivante(appartement, villa, maison, cabane)
 Les filtres fonctionnent bien individuelement, mais si l'on souhaite en mettre plusieurs alors se sera type et surface/prix mais pas surface et prix en même temps
 
 
